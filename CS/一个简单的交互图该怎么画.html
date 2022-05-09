@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>D3中一个简单的交互图该怎么画 | Zhou&#39;s Website</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    
+    <meta name="description" content="个人小天地">
+    
+    <link rel="preload" href="/assets/css/0.styles.f81279c5.css" as="style"><link rel="preload" href="/assets/js/app.572102a4.js" as="script"><link rel="preload" href="/assets/js/3.65d75187.js" as="script"><link rel="preload" href="/assets/js/1.fd91ae70.js" as="script"><link rel="preload" href="/assets/js/12.c9776792.js" as="script"><link rel="prefetch" href="/assets/js/10.a86ff389.js"><link rel="prefetch" href="/assets/js/11.41757658.js"><link rel="prefetch" href="/assets/js/13.a03133d1.js"><link rel="prefetch" href="/assets/js/14.0c05d38a.js"><link rel="prefetch" href="/assets/js/15.ae71e082.js"><link rel="prefetch" href="/assets/js/16.1bdc55cc.js"><link rel="prefetch" href="/assets/js/17.efa60986.js"><link rel="prefetch" href="/assets/js/18.49b02aa0.js"><link rel="prefetch" href="/assets/js/19.c73d0dac.js"><link rel="prefetch" href="/assets/js/20.df5ae051.js"><link rel="prefetch" href="/assets/js/21.9681aff6.js"><link rel="prefetch" href="/assets/js/22.6348d1a3.js"><link rel="prefetch" href="/assets/js/23.c3c4490d.js"><link rel="prefetch" href="/assets/js/24.5b6d2744.js"><link rel="prefetch" href="/assets/js/25.77c4d621.js"><link rel="prefetch" href="/assets/js/26.efb25f68.js"><link rel="prefetch" href="/assets/js/27.3c86d6e4.js"><link rel="prefetch" href="/assets/js/28.08393c9b.js"><link rel="prefetch" href="/assets/js/4.3be263ea.js"><link rel="prefetch" href="/assets/js/5.70d07295.js"><link rel="prefetch" href="/assets/js/6.b2529640.js"><link rel="prefetch" href="/assets/js/7.0caac750.js"><link rel="prefetch" href="/assets/js/8.0e1368fe.js"><link rel="prefetch" href="/assets/js/9.2ea833bf.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.f81279c5.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container" data-v-130b300a><div data-v-130b300a><div class="password-shadow password-wrapper-out" style="display:none;" data-v-25ba6db2 data-v-130b300a data-v-130b300a><h3 class="title" data-v-25ba6db2 data-v-25ba6db2>Zhou's Website</h3> <p class="description" data-v-25ba6db2 data-v-25ba6db2>个人小天地</p> <label id="box" class="inputBox" data-v-25ba6db2 data-v-25ba6db2><input type="password" value="" data-v-25ba6db2> <span data-v-25ba6db2>Konck! Knock!</span> <button data-v-25ba6db2>OK</button></label> <div class="footer" data-v-25ba6db2 data-v-25ba6db2><span data-v-25ba6db2><i class="iconfont reco-theme" data-v-25ba6db2></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-25ba6db2>vuePress-theme-reco</a></span> <span data-v-25ba6db2><i class="iconfont reco-copyright" data-v-25ba6db2></i> <a data-v-25ba6db2><!---->
+            
+          <!---->
+          2022
+        </a></span></div></div> <div class="hide" data-v-130b300a><header class="navbar" data-v-130b300a><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Zhou's Website</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      Web3
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Web3/" class="nav-link"><i class="undefined"></i>
+  Web3
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      Economics
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Economics/" class="nav-link"><i class="undefined"></i>
+  Economics
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      CS
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/CS/" class="nav-link router-link-active"><i class="undefined"></i>
+  CS
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      日常
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/日常/" class="nav-link"><i class="undefined"></i>
+  日常
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      个人简介
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/个人简介/" class="nav-link"><i class="undefined"></i>
+  个人简介
+</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-130b300a></div> <aside class="sidebar" data-v-130b300a><div class="personal-info-wrapper" data-v-39576ba9 data-v-130b300a><!----> <!----> <div class="num" data-v-39576ba9><div data-v-39576ba9><h3 data-v-39576ba9>13</h3> <h6 data-v-39576ba9>Articles</h6></div> <div data-v-39576ba9><h3 data-v-39576ba9>9</h3> <h6 data-v-39576ba9>Tags</h6></div></div> <ul class="social-links" data-v-39576ba9></ul> <hr data-v-39576ba9></div> <nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      Web3
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Web3/" class="nav-link"><i class="undefined"></i>
+  Web3
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      Economics
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Economics/" class="nav-link"><i class="undefined"></i>
+  Economics
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      CS
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/CS/" class="nav-link router-link-active"><i class="undefined"></i>
+  CS
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      日常
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/日常/" class="nav-link"><i class="undefined"></i>
+  日常
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      个人简介
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/个人简介/" class="nav-link"><i class="undefined"></i>
+  个人简介
+</a></li></ul></div></div> <!----></nav> <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>CS</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/CS/" aria-current="page" class="sidebar-link">Home</a></li><li><a href="/CS/D3的双向奔赴-join思想.html" class="sidebar-link">D3的双向奔赴-join思想</a></li><li><a href="/CS/一个简单的交互图该怎么画.html" class="active sidebar-link">D3中一个简单的交互图该怎么画</a></li></ul></section></li></ul> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-25ba6db2 data-v-130b300a><h3 class="title" data-v-25ba6db2 data-v-25ba6db2>D3中一个简单的交互图该怎么画</h3> <!----> <label id="box" class="inputBox" data-v-25ba6db2 data-v-25ba6db2><input type="password" value="" data-v-25ba6db2> <span data-v-25ba6db2>Konck! Knock!</span> <button data-v-25ba6db2>OK</button></label> <div class="footer" data-v-25ba6db2 data-v-25ba6db2><span data-v-25ba6db2><i class="iconfont reco-theme" data-v-25ba6db2></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-25ba6db2>vuePress-theme-reco</a></span> <span data-v-25ba6db2><i class="iconfont reco-copyright" data-v-25ba6db2></i> <a data-v-25ba6db2><!---->
+            
+          <!---->
+          2022
+        </a></span></div></div> <div data-v-130b300a><main class="page" style="padding-right:0;"><section><div class="page-title"><h1 class="title">D3中一个简单的交互图该怎么画</h1> <div data-v-f875f3fc><!----> <!----> <!----> <i class="tags iconfont reco-tag" data-v-f875f3fc><span class="tag-item" data-v-f875f3fc>D3</span></i></div></div> <div class="theme-reco-content content__default"><p><strong>无论是什么图，只要用D3画，都可以被拆分为以下的几个步骤</strong>：</p> <blockquote><p>1、<strong>导入并处理数据</strong></p></blockquote> <blockquote><p>2、<strong>设置图表的尺寸</strong></p></blockquote> <blockquote><p>3、<strong>创建画布（wrapper and bounds)</strong></p></blockquote> <blockquote><p>4、<strong>创建比例尺</strong></p></blockquote> <blockquote><p>5、<strong>将数据导入到图表里(enter append join)</strong></p></blockquote> <blockquote><p>6、<strong>把坐标轴，图例等辅助工具导入图表</strong></p></blockquote> <blockquote><p>7、<strong>设置交互</strong></p></blockquote> <p>本图例大致效果如图：
+<img src="https://i.bmp.ovh/imgs/2022/05/08/a6c8b231e8ed3e32.png" alt=""> <img src="https://i.bmp.ovh/imgs/2022/05/08/d8c7b8faa401cb90.png" alt=""></p> <h2 id="第一步-导入并处理数据"><a href="#第一步-导入并处理数据" class="header-anchor">#</a> 第一步：导入并处理数据</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>async function drawScatter() {
+
+  // 1. Access data
+  const pathToJSON = './../data/seattle_wa_weather_data.json'
+  const dataset = await d3.json(pathToJSON)
+
+  // 设置数据格式
+  const xAccessor = d =&gt; d.temperatureMin
+  const yAccessor = d =&gt; d.temperatureMax
+  const colorScaleYear = 2000 // Why 2000? We're going to use this to wrap data so we can focus on MM-DD data points
+  const parseDate = d3.timeParse(&quot;%Y-%m-%d&quot;)
+  const colorAccessor = d =&gt; parseDate(d.date).setYear(colorScaleYear)
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><h2 id="第二步-设置图标尺寸"><a href="#第二步-设置图标尺寸" class="header-anchor">#</a> 第二步：设置图标尺寸</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>  const width = d3.min([
+    window.innerWidth * 0.75,
+    window.innerHeight * 0.75,
+  ])
+  let dimensions = {
+    width: width,
+    height: width,
+    margin: {
+      top: 90,
+      right: 90,
+      bottom: 50,
+      left: 50,
+    },
+    histogramMargin: 10,
+    histogramHeight: 70,
+    legendWidth: 250,
+    legendHeight: 26,
+  }
+  dimensions.boundedWidth = dimensions.width
+    - dimensions.margin.left
+    - dimensions.margin.right
+  dimensions.boundedHeight = dimensions.height
+    - dimensions.margin.top
+    - dimensions.margin.bottom
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br></div></div><h2 id="第三步-创建画布-wrapper-and-bounds"><a href="#第三步-创建画布-wrapper-and-bounds" class="header-anchor">#</a> 第三步：创建画布（wrapper and bounds)</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>  const wrapper = d3.select(&quot;#wrapper&quot;)
+    .append(&quot;svg&quot;)
+    .attr(&quot;width&quot;, dimensions.width)
+    .attr(&quot;height&quot;, dimensions.height)
+
+  const bounds = wrapper.append(&quot;g&quot;)
+    .style(&quot;transform&quot;, `translate(${
+      dimensions.margin.left
+      }px, ${
+      dimensions.margin.top
+      }px)`)
+
+  const boundsBackground = bounds.append(&quot;rect&quot;)
+    .attr(&quot;class&quot;, &quot;bounds-background&quot;)
+    .attr(&quot;x&quot;, 0)
+    .attr(&quot;width&quot;, dimensions.boundedWidth)
+    .attr(&quot;y&quot;, 0)
+    .attr(&quot;height&quot;, dimensions.boundedHeight)
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br></div></div><h2 id="第四步-创建比例尺"><a href="#第四步-创建比例尺" class="header-anchor">#</a> 第四步：创建比例尺</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>  const temperaturesExtent = d3.extent([
+    ...dataset.map(xAccessor),
+    ...dataset.map(yAccessor),
+  ])
+
+  //设置横纵轴比例尺
+
+  const xScale = d3.scaleLinear()
+    .domain(temperaturesExtent)
+    .range([0, dimensions.boundedWidth])
+    .nice()//加了nice，比例尺就很nice
+
+  const yScale = d3.scaleLinear()
+    .domain(temperaturesExtent)
+    .range([dimensions.boundedHeight, 0])
+    .nice()
+
+  // 一个有意思的颜色图例，即根据日期而非温度来变换颜色
+  const colorScale = d3.scaleSequential()
+    .domain([
+      d3.timeParse(&quot;%m/%d/%Y&quot;)(`1/1/${colorScaleYear}`),
+      d3.timeParse(&quot;%m/%d/%Y&quot;)(`12/31/${colorScaleYear}`),
+    ])
+    // Invert the value so that our fall colors are more appropriate (brown/orangeish)
+    .interpolator(d =&gt; d3.interpolateRainbow(-d))
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br></div></div><h2 id="第五步-将数据导入到图表里-enter-append-join"><a href="#第五步-将数据导入到图表里-enter-append-join" class="header-anchor">#</a> 第五步：将数据导入到图表里(enter append join)</h2> <p>histogram和area能画出比较好看的流畅的直方图（感觉也不能叫直方图了..)</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>  // 绘制散点图
+  const dotsGroup = bounds.append(&quot;g&quot;)
+  const dots = dotsGroup.selectAll(&quot;.dot&quot;)
+    .data(dataset, d =&gt; d[0])
+    .join(&quot;circle&quot;)
+    .attr(&quot;class&quot;, &quot;dot&quot;)
+    .attr(&quot;cx&quot;, d =&gt; xScale(xAccessor(d)))
+    .attr(&quot;cy&quot;, d =&gt; yScale(yAccessor(d)))
+    .attr(&quot;r&quot;, 4)
+    // Fill our dots with the appropriate value from our color scale
+    .style(&quot;fill&quot;, d =&gt; colorScale(colorAccessor(d)))
+
+  // 绘制图上直方图
+  const topHistogramGenerator = d3.histogram()
+    .domain(xScale.domain())
+    .value(xAccessor)
+    .thresholds(20)//thresholds为分箱阈值生成器，20指生成20个分箱
+  // thresholds数字可以自由调节一下
+
+  const topHistogramBins = topHistogramGenerator(dataset)
+
+  const topHistogramYScale = d3.scaleLinear()
+    .domain(d3.extent(topHistogramBins, d =&gt; d.length))
+    .range([dimensions.histogramHeight, 0])
+
+  //将该直方图移到主体的上方
+  const topHistogramBounds = bounds.append(&quot;g&quot;)
+    .attr(&quot;transform&quot;, `translate(0, ${
+      -dimensions.histogramHeight
+      - dimensions.histogramMargin
+      })`)
+
+  //设置直方图平滑过渡(area块导入path里)
+  const topHistogramLineGenerator = d3.area()
+    .x(d =&gt; xScale((d.x0 + d.x1) / 2))
+    .y0(dimensions.histogramHeight)
+    .y1(d =&gt; topHistogramYScale(d.length))
+    .curve(d3.curveBasis)
+
+  const topHistogramElement = topHistogramBounds.append(&quot;path&quot;)
+    .attr(&quot;d&quot;, d =&gt; topHistogramLineGenerator(topHistogramBins))
+    .attr(&quot;class&quot;, &quot;histogram-area&quot;)
+
+  // 绘制图右直方图（以下同）
+  const rightHistogramGenerator = d3.histogram()
+    .domain(yScale.domain())
+    .value(yAccessor)
+    .thresholds(20)
+
+  const rightHistogramBins = rightHistogramGenerator(dataset)
+
+  const rightHistogramYScale = d3.scaleLinear()
+    .domain(d3.extent(rightHistogramBins, d =&gt; d.length))
+    .range([dimensions.histogramHeight, 0])
+
+  const rightHistogramBounds = bounds.append(&quot;g&quot;)
+    .attr(&quot;class&quot;, &quot;right-histogram&quot;)
+    .style(&quot;transform&quot;, `translate(${
+      // 这里需要旋转，注意一下
+      dimensions.boundedWidth + dimensions.histogramMargin
+      }px, -${
+      dimensions.histogramHeight
+      }px) rotate(90deg)`)
+
+  const rightHistogramLineGenerator = d3.area()
+    .x(d =&gt; yScale((d.x0 + d.x1) / 2))
+    .y0(dimensions.histogramHeight)
+    .y1(d =&gt; rightHistogramYScale(d.length))
+    .curve(d3.curveBasis)
+
+  const rightHistogramElement = rightHistogramBounds.append(&quot;path&quot;)
+    .attr(&quot;d&quot;, d =&gt; rightHistogramLineGenerator(rightHistogramBins))
+    .attr(&quot;class&quot;, &quot;histogram-area&quot;)
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br></div></div><h2 id="第六步-把坐标轴-图例等辅助工具导入图表"><a href="#第六步-把坐标轴-图例等辅助工具导入图表" class="header-anchor">#</a> 第六步：把坐标轴，图例等辅助工具导入图表</h2> <p><strong>横轴和纵轴的导入</strong>自然不用多说，注意坐标轴容器刻度的位置和记得call就好。</p> <p><strong>颜色图例</strong>是一个很难搞的内容。先搞<strong>颜色梯度</strong>，再<strong>嵌入矩形</strong>，最后<strong>加上刻度、标记</strong>等。</p> <p><strong>怎么导刻度</strong>呢？1、刻度尺搞出来（就是颜色的比例尺放入矩形长度的range里）；2、把自己选好的几个点进行处理，通过刻度尺，映射到图上（注意设置y不要让它与颜色图例重合）；3、刻度嵌入进去</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>  // 设置横轴（注意通过call将scale导入坐标轴容器里）
+  const xAxisGenerator = d3.axisBottom()
+    .scale(xScale)
+    .ticks(4)
+
+  const xAxis = bounds.append(&quot;g&quot;)
+    .call(xAxisGenerator)
+    .style(&quot;transform&quot;, `translateY(${dimensions.boundedHeight}px)`)
+
+  const xAxisLabel = xAxis.append(&quot;text&quot;)
+    .attr(&quot;class&quot;, &quot;x-axis-label&quot;)
+    .attr(&quot;x&quot;, dimensions.boundedWidth / 2)
+    .attr(&quot;y&quot;, dimensions.margin.bottom - 10)
+    .html(&quot;Minimum Temperature (&amp;deg;F)&quot;)
+
+  // 设置纵轴（注意通过call将scale导入坐标轴容器里）
+  const yAxisGenerator = d3.axisLeft()
+    .scale(yScale)
+    .ticks(4)
+
+  const yAxis = bounds.append(&quot;g&quot;)
+    .call(yAxisGenerator)
+
+  const yAxisLabel = yAxis.append(&quot;text&quot;)
+    .attr(&quot;class&quot;, &quot;y-axis-label&quot;)
+    .attr(&quot;x&quot;, -dimensions.boundedHeight / 2)
+    .attr(&quot;y&quot;, -dimensions.margin.left + 10)
+    .html(&quot;Maximum Temperature (&amp;deg;F)&quot;)
+
+  // 设置右下方的颜色图例
+  const legendGroup = bounds.append(&quot;g&quot;)
+    .attr(&quot;transform&quot;, `translate(${
+      // Notice that we can place this legend within our scatterplot chart based on our dataset
+      dimensions.boundedWidth - dimensions.legendWidth - 9
+      },${
+      dimensions.boundedHeight - 37
+      })`)
+
+  // 定义颜色梯度
+  const defs = wrapper.append(&quot;defs&quot;) 
+
+  const numberOfGradientStops = 10
+  const stops = d3.range(numberOfGradientStops).map(i =&gt; (
+    i / (numberOfGradientStops - 1)
+  ))
+  const legendGradientId = &quot;legend-gradient&quot;
+  const gradient = defs.append(&quot;linearGradient&quot;)
+    .attr(&quot;id&quot;, legendGradientId)
+    .selectAll(&quot;stop&quot;)
+    .data(stops)
+    .enter().append(&quot;stop&quot;)
+    .attr(&quot;stop-color&quot;, d =&gt; d3.interpolateRainbow(-d))
+    .attr(&quot;offset&quot;, d =&gt; `${d * 100}%`)
+
+  //将颜色梯度导入矩形的fill,现在五颜六色的矩形出来了
+  const legendGradient = legendGroup.append(&quot;rect&quot;)
+    .attr(&quot;height&quot;, dimensions.legendHeight)
+    .attr(&quot;width&quot;, dimensions.legendWidth)
+    .style(&quot;fill&quot;, `url(#${legendGradientId})`)
+
+  //刻度尺搞出来
+  const tickValues = [
+    d3.timeParse(&quot;%m/%d/%Y&quot;)(`2/1/${colorScaleYear}`),
+    d3.timeParse(&quot;%m/%d/%Y&quot;)(`5/1/${colorScaleYear}`),
+    d3.timeParse(&quot;%m/%d/%Y&quot;)(`8/1/${colorScaleYear}`),
+    d3.timeParse(&quot;%m/%d/%Y&quot;)(`11/1/${colorScaleYear}`),
+  ]
+  const legendTickScale = d3.scaleLinear()
+    .domain(colorScale.domain())
+    .range([0, dimensions.legendWidth])
+
+  //把选好的点映射到图上
+  const legendValues = legendGroup.selectAll(&quot;.legend-value&quot;)
+    .data(tickValues)
+    .enter().append(&quot;text&quot;)
+    .attr(&quot;class&quot;, &quot;legend-value&quot;)
+    .attr(&quot;x&quot;, legendTickScale)
+    .attr(&quot;y&quot;, -6)
+    .text(d3.timeFormat(&quot;%b&quot;))
+
+  //搞个刻度
+  const legendValueTicks = legendGroup.selectAll(&quot;.legend-tick&quot;)
+    .data(tickValues)
+    .enter().append(&quot;line&quot;)
+    .attr(&quot;class&quot;, &quot;legend-tick&quot;)
+    .attr(&quot;x1&quot;, legendTickScale)
+    .attr(&quot;x2&quot;, legendTickScale)
+    .attr(&quot;y1&quot;, 6)
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br></div></div><h2 id="第七步-增加交互效果"><a href="#第七步-增加交互效果" class="header-anchor">#</a> 第七步：增加交互效果</h2> <p>简而言之，<strong>voronoi图</strong>就是一个看上去更好看、更好交互的图。x、y用于定位，extent用来设定voronoi布局的具体范围。</p> <p><code>diagram.polygons()</code>
+返回一个稀疏的并且根据 extent 被裁剪的多边形数组，每个多边形都有一个对应的 cell（用来交互的）</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>  // create voronoi for tooltips
+  const voronoiGenerator = d3.voronoi()
+    .x(d =&gt; xScale(xAccessor(d)))
+    .y(d =&gt; yScale(yAccessor(d)))
+    .extent([
+      [0, 0],
+      [dimensions.boundedWidth, dimensions.boundedHeight]
+    ])
+
+  const voronoiPolygons = voronoiGenerator.polygons(dataset)
+
+  const voronoi = dotsGroup.selectAll(&quot;.voronoi&quot;)
+    .data(voronoiPolygons)
+    .enter().append(&quot;polygon&quot;)
+    .attr(&quot;class&quot;, &quot;voronoi&quot;)
+    //下面这几行没太看懂quq
+    .attr(&quot;points&quot;, (d = []) =&gt; (
+      d.map(point =&gt; (
+        point.join(&quot;,&quot;)
+      )).join(&quot; &quot;)
+    ))
+  // Uncomment to see the Voronoi polygons generated from our dataset
+  // .attr(&quot;stroke&quot;, &quot;grey&quot;)
+
+  voronoi.on(&quot;mouseenter&quot;, onVoronoiMouseEnter)
+    .on(&quot;mouseleave&quot;, onVoronoiMouseLeave)
+
+  const tooltip = d3.select(&quot;#tooltip&quot;)
+  const hoverElementsGroup = bounds.append(&quot;g&quot;)
+    .attr(&quot;opacity&quot;, 0)
+
+  // 设置两根从选中点发射出来的线段。用&lt;rect&gt;s 而不是 &lt;line&gt;s 来更好的展现动画效果
+  const horizontalLine = hoverElementsGroup.append(&quot;rect&quot;)
+    .attr(&quot;class&quot;, &quot;hover-line&quot;)
+  const verticalLine = hoverElementsGroup.append(&quot;rect&quot;)
+    .attr(&quot;class&quot;, &quot;hover-line&quot;)
+
+  // 设置选定圆
+  const dayDot = hoverElementsGroup.append(&quot;circle&quot;)
+    .attr(&quot;class&quot;, &quot;tooltip-dot&quot;)
+
+  // 鼠标放上来的function
+  function onVoronoiMouseEnter(voronoiDatum) {
+    const datum = voronoiDatum.data
+
+    hoverElementsGroup.style(&quot;opacity&quot;, 1)
+    const x = xScale(xAccessor(datum))
+    const y = yScale(yAccessor(datum))
+    dayDot.attr(&quot;cx&quot;, d =&gt; x)
+      .attr(&quot;cy&quot;, d =&gt; y)
+      //设定选中圆的大小
+      .attr(&quot;r&quot;, 7)
+
+  // 设定一下两条线的一些参数
+    const hoverLineThickness = 10
+    horizontalLine.attr(&quot;x&quot;, x)
+      .attr(&quot;y&quot;, y - hoverLineThickness / 2)
+      .attr(&quot;width&quot;, dimensions.boundedWidth
+        + dimensions.histogramMargin
+        + dimensions.histogramHeight
+        - x)
+      .attr(&quot;height&quot;, hoverLineThickness)
+    verticalLine.attr(&quot;x&quot;, x - hoverLineThickness / 2)
+      .attr(&quot;y&quot;, -dimensions.histogramMargin
+        - dimensions.histogramHeight)
+      .attr(&quot;width&quot;, hoverLineThickness)
+      .attr(&quot;height&quot;, y
+        + dimensions.histogramMargin
+        + dimensions.histogramHeight)
+
+  // 设定提示框文字里的温度及其格式（保留一位小数）
+    const formatTemperature = d3.format(&quot;.1f&quot;)
+    tooltip.select(&quot;#max-temperature&quot;)
+      .text(formatTemperature(yAccessor(datum)))
+
+    tooltip.select(&quot;#min-temperature&quot;)
+      .text(formatTemperature(xAccessor(datum)))
+
+  // 设定提示框文字里的日期
+    const dateParser = d3.timeParse(&quot;%Y-%m-%d&quot;)
+    const formatDate = d3.timeFormat(&quot;%A, %B %-d, %Y&quot;)
+    tooltip.select(&quot;#date&quot;)
+      .text(formatDate(dateParser(datum.date)))
+
+  // 设定提示框放在哪捏
+    const tooltipX = xScale(xAccessor(datum))
+      + dimensions.margin.left
+    const tooltipY = yScale(yAccessor(datum))
+      + dimensions.margin.top
+      - 4 // bump up so it doesn't overlap with out hover circle
+  // 
+    tooltip.style(&quot;transform&quot;, `translate(`
+      + `calc( -50% + ${tooltipX}px),`
+      + `calc(-100% + ${tooltipY}px)`
+      + `)`)
+
+    tooltip.style(&quot;opacity&quot;, 1)
+  }
+
+  // 鼠标移走的function
+  function onVoronoiMouseLeave() {
+    hoverElementsGroup.style(&quot;opacity&quot;, 0)
+    tooltip.style(&quot;opacity&quot;, 0)
+  }
+
+  // 图例的交互设置
+  legendGradient.on(&quot;mousemove&quot;, onLegendMouseMove)
+    .on(&quot;mouseleave&quot;, onLegendMouseLeave)
+
+  // 设定图例的选定框
+  const legendHighlightBarWidth = dimensions.legendWidth * 0.05
+  const legendHighlightGroup = legendGroup.append(&quot;g&quot;)
+    .attr(&quot;opacity&quot;, 0)
+  const legendHighlightBar = legendHighlightGroup.append(&quot;rect&quot;)
+    .attr(&quot;class&quot;, &quot;legend-highlight-bar&quot;)
+    .attr(&quot;width&quot;, legendHighlightBarWidth)
+    .attr(&quot;height&quot;, dimensions.legendHeight)
+
+  // 设定选定框的文字提示位置
+  const legendHighlightText = legendHighlightGroup.append(&quot;text&quot;)
+    .attr(&quot;class&quot;, &quot;legend-highlight-text&quot;)
+    .attr(&quot;x&quot;, legendHighlightBarWidth / 2)
+    .attr(&quot;y&quot;, -6)
+
+  // 与两个直方图也交互起来
+  const hoverTopHistogram = topHistogramBounds.append(&quot;path&quot;)
+  const hoverRightHistogram = rightHistogramBounds.append(&quot;path&quot;)
+
+  // 鼠标移到图例上的function
+  function onLegendMouseMove(e) {
+    //d3.mouse()函数用于返回当前事件的x坐标和y坐标。如果事件被点击，那么它将返回点击的x和y位置。
+    const [x] = d3.mouse(this)  
+    const minDateToHighlight = new Date(
+      legendTickScale.invert(x - legendHighlightBarWidth) //invert将range对象的数据反向映射到domain对象的数据
+    )
+    const maxDateToHighlight = new Date(
+      legendTickScale.invert(x + legendHighlightBarWidth)
+    )
+  
+  // d3.median()返回中值或中点
+    const barX = d3.median([
+      0,
+      x - legendHighlightBarWidth / 2,
+      dimensions.legendWidth - legendHighlightBarWidth,
+    ])
+
+  // 设定图例选定框的文字提示
+    legendHighlightGroup.style(&quot;opacity&quot;, 1)
+      .style(&quot;transform&quot;, `translateX(${barX}px)`)
+    const formatLegendDate = d3.timeFormat(&quot;%b %d&quot;)
+    legendHighlightText.text([
+      formatLegendDate(minDateToHighlight),
+      formatLegendDate(maxDateToHighlight),
+    ].join(&quot; - &quot;))
+
+  // 刻度与刻度标识在选定图例时都消失捏
+    legendValues.style(&quot;opacity&quot;, 0)
+    legendValueTicks.style(&quot;opacity&quot;, 0)
+
+  // 设置动画捏
+    dots.transition().duration(100)
+      //选定图例时图上的点都变淡了捏，还变小了捏
+      .style(&quot;opacity&quot;, 0.08)
+      .attr(&quot;r&quot;, 2)
+
+    const getYear = d =&gt; +d3.timeFormat(&quot;%Y&quot;)(d)
+    const isDayWithinRange = d =&gt; {
+      const date = colorAccessor(d)
+
+    //colorScaleYear设定的是2000年，一定小于数据的年份，这里只是为了去除错误项
+      if (getYear(minDateToHighlight) &lt; colorScaleYear) {
+        // if dates wrap around to previous year,
+        // check if this date is after the min date
+        return date &gt;= new Date(minDateToHighlight)
+          .setYear(colorScaleYear)
+          || date &lt;= maxDateToHighlight
+
+      } else if (getYear(maxDateToHighlight) &gt; colorScaleYear) {
+        // if dates wrap around to next year,
+        // check if this date is before the max date
+        return date &lt;= new Date(maxDateToHighlight)
+          .setYear(colorScaleYear)
+          || date &gt;= minDateToHighlight
+
+      } else {
+        return date &gt;= minDateToHighlight
+          &amp;&amp; date &lt;= maxDateToHighlight
+      }
+    }
+
+  //在选定框内的区域还是突出显示捏
+    const relevantDots = dots.filter(isDayWithinRange)
+      .transition().duration(100)
+      .style(&quot;opacity&quot;, 1)
+      .attr(&quot;r&quot;, 5)
+
+  //设置一下直方图的交互捏
+    const hoveredDates = dataset.filter(isDayWithinRange)
+
+    const hoveredDate = d3.isoParse(legendTickScale.invert(x))
+    hoverTopHistogram.attr(&quot;d&quot;, d =&gt; (
+      topHistogramLineGenerator(topHistogramGenerator(hoveredDates))
+    ))
+      .attr(&quot;fill&quot;, colorScale(hoveredDate))
+      .attr(&quot;stroke&quot;, &quot;white&quot;)
+      .style(&quot;opacity&quot;, 1)
+
+    hoverRightHistogram.attr(&quot;d&quot;, d =&gt; (
+      rightHistogramLineGenerator(
+        rightHistogramGenerator(hoveredDates)
+      )
+    ))
+      .attr(&quot;fill&quot;, colorScale(hoveredDate))
+      .attr(&quot;stroke&quot;, &quot;white&quot;)
+      .style(&quot;opacity&quot;, 1)
+
+  }
+
+  //鼠标移走后都复原捏
+  function onLegendMouseLeave() {
+    dotsGroup.selectAll(&quot;.dot&quot;)
+      .transition().duration(500)
+      .style(&quot;opacity&quot;, 1)
+      .attr(&quot;r&quot;, 4)
+
+    legendValues.style(&quot;opacity&quot;, 1)
+    legendValueTicks.style(&quot;opacity&quot;, 1)
+    legendHighlightGroup.style(&quot;opacity&quot;, 0)
+    hoverTopHistogram.style(&quot;opacity&quot;, 0)
+    hoverRightHistogram.style(&quot;opacity&quot;, 0)
+  }
+
+}
+drawScatter()
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br><span class="line-number">91</span><br><span class="line-number">92</span><br><span class="line-number">93</span><br><span class="line-number">94</span><br><span class="line-number">95</span><br><span class="line-number">96</span><br><span class="line-number">97</span><br><span class="line-number">98</span><br><span class="line-number">99</span><br><span class="line-number">100</span><br><span class="line-number">101</span><br><span class="line-number">102</span><br><span class="line-number">103</span><br><span class="line-number">104</span><br><span class="line-number">105</span><br><span class="line-number">106</span><br><span class="line-number">107</span><br><span class="line-number">108</span><br><span class="line-number">109</span><br><span class="line-number">110</span><br><span class="line-number">111</span><br><span class="line-number">112</span><br><span class="line-number">113</span><br><span class="line-number">114</span><br><span class="line-number">115</span><br><span class="line-number">116</span><br><span class="line-number">117</span><br><span class="line-number">118</span><br><span class="line-number">119</span><br><span class="line-number">120</span><br><span class="line-number">121</span><br><span class="line-number">122</span><br><span class="line-number">123</span><br><span class="line-number">124</span><br><span class="line-number">125</span><br><span class="line-number">126</span><br><span class="line-number">127</span><br><span class="line-number">128</span><br><span class="line-number">129</span><br><span class="line-number">130</span><br><span class="line-number">131</span><br><span class="line-number">132</span><br><span class="line-number">133</span><br><span class="line-number">134</span><br><span class="line-number">135</span><br><span class="line-number">136</span><br><span class="line-number">137</span><br><span class="line-number">138</span><br><span class="line-number">139</span><br><span class="line-number">140</span><br><span class="line-number">141</span><br><span class="line-number">142</span><br><span class="line-number">143</span><br><span class="line-number">144</span><br><span class="line-number">145</span><br><span class="line-number">146</span><br><span class="line-number">147</span><br><span class="line-number">148</span><br><span class="line-number">149</span><br><span class="line-number">150</span><br><span class="line-number">151</span><br><span class="line-number">152</span><br><span class="line-number">153</span><br><span class="line-number">154</span><br><span class="line-number">155</span><br><span class="line-number">156</span><br><span class="line-number">157</span><br><span class="line-number">158</span><br><span class="line-number">159</span><br><span class="line-number">160</span><br><span class="line-number">161</span><br><span class="line-number">162</span><br><span class="line-number">163</span><br><span class="line-number">164</span><br><span class="line-number">165</span><br><span class="line-number">166</span><br><span class="line-number">167</span><br><span class="line-number">168</span><br><span class="line-number">169</span><br><span class="line-number">170</span><br><span class="line-number">171</span><br><span class="line-number">172</span><br><span class="line-number">173</span><br><span class="line-number">174</span><br><span class="line-number">175</span><br><span class="line-number">176</span><br><span class="line-number">177</span><br><span class="line-number">178</span><br><span class="line-number">179</span><br><span class="line-number">180</span><br><span class="line-number">181</span><br><span class="line-number">182</span><br><span class="line-number">183</span><br><span class="line-number">184</span><br><span class="line-number">185</span><br><span class="line-number">186</span><br><span class="line-number">187</span><br><span class="line-number">188</span><br><span class="line-number">189</span><br><span class="line-number">190</span><br><span class="line-number">191</span><br><span class="line-number">192</span><br><span class="line-number">193</span><br><span class="line-number">194</span><br><span class="line-number">195</span><br><span class="line-number">196</span><br><span class="line-number">197</span><br><span class="line-number">198</span><br><span class="line-number">199</span><br><span class="line-number">200</span><br><span class="line-number">201</span><br><span class="line-number">202</span><br><span class="line-number">203</span><br><span class="line-number">204</span><br><span class="line-number">205</span><br><span class="line-number">206</span><br><span class="line-number">207</span><br><span class="line-number">208</span><br><span class="line-number">209</span><br><span class="line-number">210</span><br><span class="line-number">211</span><br><span class="line-number">212</span><br><span class="line-number">213</span><br><span class="line-number">214</span><br><span class="line-number">215</span><br><span class="line-number">216</span><br><span class="line-number">217</span><br><span class="line-number">218</span><br><span class="line-number">219</span><br><span class="line-number">220</span><br><span class="line-number">221</span><br><span class="line-number">222</span><br><span class="line-number">223</span><br><span class="line-number">224</span><br><span class="line-number">225</span><br><span class="line-number">226</span><br><span class="line-number">227</span><br><span class="line-number">228</span><br><span class="line-number">229</span><br><span class="line-number">230</span><br><span class="line-number">231</span><br><span class="line-number">232</span><br><span class="line-number">233</span><br><span class="line-number">234</span><br></div></div><h2 id="别忘了设置html文件"><a href="#别忘了设置html文件" class="header-anchor">#</a> 别忘了设置HTML文件！</h2> <p>好了，具体的内容差不多到这就结束了。但是一般，我们会把D3的代码放在一个js文件里，然后在另一个html文件里使用它。
+以下是html文件的内容。注意，提示框的文字格式就是在html文件里设置的。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;./css/styles.css&quot; /&gt;
+  &lt;title&gt;Example 10: Marginal histogram&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+  &lt;h2 class=&quot;title&quot;&gt;Daily Temperature Ranges&lt;/h2&gt;
+  &lt;div class=&quot;description&quot;&gt;Daily minimum and maximum temperatures for Seattle over the past year&lt;/div&gt;
+
+  &lt;div id=&quot;wrapper&quot; class=&quot;wrapper&quot;&gt;
+
+    &lt;div id=&quot;tooltip&quot; class=&quot;tooltip&quot;&gt;
+      &lt;div class=&quot;tooltip-date&quot;&gt;
+        &lt;span id=&quot;date&quot;&gt;&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;tooltip-temperature&quot;&gt;
+        &lt;span id=&quot;min-temperature&quot;&gt;&lt;/span&gt;&amp;deg;F
+        -
+        &lt;span id=&quot;max-temperature&quot;&gt;&lt;/span&gt;&amp;deg;F
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+
+  &lt;script src=&quot;./../d3.v5.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;./js/scatter.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br></div></div></div></section> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev"><a href="/CS/D3的双向奔赴-join思想.html" class="prev">
+            D3的双向奔赴-join思想
+          </a></span> <!----></p></div> <div class="comments-wrapper"><!----></div> <ul class="side-bar sub-sidebar-wrapper" style="width:0;" data-v-cb1513f6></ul></main> <!----></div></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div><APlayer audio="" fixed="true" mini="true" autoplay="autoplay" theme="#b7daff" loop="loop" order="random" preload="auto" volume="0.15" mutex="true" lrc-type="0" list-max-height="250" storage-name="vuepress-plugin-meting" id="aplayer-fixed"></APlayer></div></div>
+    <script src="/assets/js/app.572102a4.js" defer></script><script src="/assets/js/3.65d75187.js" defer></script><script src="/assets/js/1.fd91ae70.js" defer></script><script src="/assets/js/12.c9776792.js" defer></script>
+  </body>
+</html>
